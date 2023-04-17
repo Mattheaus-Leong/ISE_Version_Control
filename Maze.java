@@ -1,5 +1,5 @@
 import java.util.Scanner;
-i
+
 
 public class Maze
 {
@@ -80,28 +80,29 @@ public class Maze
             }
             else
             {
-                if(grid[row][col] == EMPTY)
+                switch(grid[row][col]) 
                 {
-                    grid[row][col] = VISITED;
+                    case Maze.EMPTY:
+                        grid[row][col] = Maze.VISITED; 
+                        break;
+                    case Maze.WALL:
+                        done = true;
+                        System.out.println("You stumble blindly into a solid concrete wall."); 
+                        break;
+                    case Maze.END:
+                        done = true;
+                        solved = true; 
+                        System.out.println("SOLVED!"); 
+                        break;
+                        
+                    default:
+                    // Do nothing
                 }
-                else if(grid[row][col] == WALL)
-                {
-                    done = true;
-                    System.out.println("You stumble blindly into a solid concrete wall."); // Hit wall.
-                }
-                else if(grid[row][col] == END)
-                {
-                    done = true;
-                    solved = true;
-                    System.out.println("SOLVED!"); // Solved.
-                }
-                else
-                {} // Do nothing
             }
             
             charIndex++;
         }
-        
+       
         if(!solved)
         {
             System.out.println("You have failed to escape. Future archeologists gaze upon your remains in bafflement."); // Did not reach the end.
@@ -109,3 +110,4 @@ public class Maze
         Viewer.view(grid);
     }
 }
+

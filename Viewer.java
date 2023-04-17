@@ -9,11 +9,11 @@ public class Viewer
                 switch(grid[i][j])
                 {
                     case Maze.EMPTY:
-                        System.out.print("  ");
+                        System.out.print("aa");
                         break;
                         
                     case Maze.WALL:
-                        System.out.print("##");
+                        System.out.print("bb");
                         break;
                         
                     case Maze.START:
